@@ -37,8 +37,10 @@ public class DisplayFirebase extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren())
                 {
                     Student st = dataSnapshot.getValue(Student.class);
